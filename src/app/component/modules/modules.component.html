@@ -1,0 +1,76 @@
+<section class="bg-gray-50">
+    <div class="container w-full mx-auto px-10 py-20 xl:p-28">
+
+        <div>
+            <h1 data-aos="fade-up" data-aos-duration="1000"
+                class="font-alexandria font-semibold text-6xl text-center mb-10 lg:mb-16">
+                Core HRMS Modules Of
+                <span class="text-primary">
+                    HR Connect
+                </span>
+            </h1>
+            <p data-aos="fade-up" data-aos-duration="1000"
+                class="font-alexandria font-normal text-gray-500 text-center max-w-[80%] mx-auto">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6 mt-10 lg:mt-16">
+            @for (feature of features;track feature; let i = $index) {
+            <div (click)="setActive(i)" (mouseenter)="setHover(i)" (mouseleave)="setHover(null)"
+                class="rounded-2.5xl text-center border lg:p-10 transition-all duration-300 cursor-pointer p-6 shadow-sm flex flex-col items-start gap-3"
+                data-aos="fade-up" data-aos-duration="1000" [ngClass]="
+        (hoverIndex() === i || activeIndex() === i)
+          ? 'bg-primary text-white border-primary shadow-lg'
+          : 'bg-white text-gray-700 border-primary shadow-xl hover:shadow-lg'
+      ">
+                <!-- Icon -->
+                <div class="flex justify-center items-center w-full">
+                    @switch (feature.id) {
+                    @case ('dashboard') {
+                    <svg class="w-[60px] h-[60px]" fill="none" stroke="currentColor" stroke-width="1.5"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18" />
+                    </svg>
+                    }
+                    @case ('loan') {
+                    <svg class="w-[60px] h-[60px]" fill="none" stroke="currentColor" stroke-width="1.5"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 6v6h4m6-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    }
+                    @case ('logs') {
+                    <svg class="w-[60px] h-[60px]" fill="none" stroke="currentColor" stroke-width="1.5"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v16H4z M9 9h6v6H9z" />
+                    </svg>
+                    }
+                    @default {
+                    <svg class="w-[60px] h-[60px]" fill="none" stroke="currentColor" stroke-width="1.5"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 6v6h4m6-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    }
+                    }
+                </div>
+
+                <!-- Title -->
+                <h3 [ngClass]="
+        (hoverIndex() === i || activeIndex() === i)
+          ? 'text-white '
+          : 'text-primary'
+      " class="font-semibold text-center w-full text-2xl font-alexandria">{{ feature.title }}</h3>
+
+                <!-- Description -->
+                <p class="leading-relaxed font-alexandria font-normal">{{ feature.desc }}</p>
+            </div>
+            }
+        </div>
+
+    </div>
+
+</section>
